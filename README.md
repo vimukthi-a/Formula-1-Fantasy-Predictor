@@ -1,9 +1,9 @@
 # F1 Fantasy Predictor
 
-An F1 race and fantasy prediction project using Python, FastF1, and machine learning.
+This is a sytem powered by a machine learning model that predicts Formula 1 race outcomes and generates optimized F1 Fantasy driver selections.
 
 ## Goal
-Predict race outcomes and provide F1 Fantasy-style driver picks based on historical and race-week data.
+The goal of this is to predict race results and transform the predictions into **actionalble Fantasy picks** using historical and race week data.
 
 ---
 
@@ -29,13 +29,19 @@ Key features explored:
 
 ### Advanced Features
 
-To reduce over-reliance on a single feature, additional engineered features were created:
+To reduce over-reliance on a single feature, we engineering new features:
 
 - **GridVsForm**  
   Compares a driver's recent form with their starting position
 
 - **FormTrend**  
   Captures improvement or decline in recent performance
+
+- **AveragePositionChange**
+  Measures how many positions a driver typically gains or loses
+
+- **Consistency**
+  This represents stability in driver performance acrosses races
 
 ---
 
@@ -46,7 +52,7 @@ Initial models showed that:
 - `RollingAvg3` dominated predictions (**~0.78 feature importance**)
 
 To address this:
-- RollingAvg3 was used to derive more balanced features instead of being used directly
+- RollingAvg3 was used to derive more balanced features instead of being used directly (e.g., GridVsForm, FormTrend)
 
 ---
 
@@ -61,20 +67,63 @@ To address this:
 
 ---
 
+## 🎯 Fantasy Pick Logic (V1)
+
+This model is extended into a **decision-making system for F1 Fantasy**
+
+### Strategy
+
+Driver selection is based on:
+
+- **Safe Picks (Top 3)**
+  Drivers with the lowest predicted finishing positions
+
+- **Midfield Picks (Top 3)**
+  Selected from predicted midfield (positions 6-12) based on:
+  - Average position gains
+  - Consistency
+
+---
+
+### Evaluation Metrics
+
+- **Top 5 Hit rate** - number of selected drivers finishing in the top 5
+- **Top 10 Hit rate** - number of selected drivers finishing in the top 10
+- **Average finishing position** - average position the selected driver finishes
+
+---
+
+## 📈 Fantasy Evaluation (V1)
+
+This has been tested across multiple races:
+
+- Canadian Grand Prix → **Top 5 hit rate: 0.83**
+- Monaco/Singapore Grand Prix → **Strong Preformance**
+- Italian Grand Prix → **Top 5 hit rate: 0.5 (weak case)**
+
+### Observation
+
+- Model performs well in stable races
+- Performance drops when races are strategy heavy or unpredictable
+- Indicates oppurtunity for improved selection logic (V2)
+
+---
+
 ## 🔍 Learnings
 
 - Feature dominance can negatively impact model balance
 - Feature engineering is more effective than simply adding more features
 - Proper evaluation (2023 → 2024 split) is critical to avoid data leakage
 - Debugging and data pipeline correctness are essential for reliable results
+- Prediction accuracy alone is not enough — **decision logic matters**
 
 ---
 
-## 🚀 Next Steps
+## 📁 Project Structure
 
-- Improve feature set (driver consistency, track-specific performance)
-- Build prediction function for race-week forecasting
-- Develop a web dashboard for interactive predictions and F1 Fantasy picks
+- `notebooks/` → model development and experimentation
+- `data/` → processed race datasets
+- `results/` → stores fantasy evaluation output
 
 ---
 
@@ -87,6 +136,18 @@ To address this:
 
 ---
 
+## 🚀 Next Steps
+
+- Improve fantasy selection logic (V2)
+  - Introduce confidence scoring
+  - Improve midfield selection
+- Expand training data (2023 + 2024 → 2025)
+- Incorporate regulation-era awareness (2026 changes, plus drivers and new teams)
+- Build a web interface for predictions and fantasy picks
+
+---
+
 ## 📌 Status
 
-Active development — core prediction pipeline implemented, moving toward real-time prediction and deployment.
+Active development — core prediction pipeline implemented.
+Currently focused on improving the fnatasy logic and preparing for deployment
