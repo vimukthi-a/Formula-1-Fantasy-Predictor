@@ -1,0 +1,4 @@
+Total picks,Top 5 picks,Top 5 hit rate,Top 10 picks,Top 10 hit rate,Average Actual Finish,Average Prediction Error,RaceName,Picks
+6,4,0.67,5,0.83,5.67,2.45,Qatar Grand Prix,"VER, RUS, LEC, GAS, LAW, ZHO"
+6,3,0.5,6,1.0,4.83,0.9,Italian Grand Prix,"NOR, PIA, LEC, VER, MAG, RUS"
+6,4,0.67,6,1.0,4.17,1.27,Canadian Grand Prix,"VER, NOR, RUS, HAM, GAS, ALO"
