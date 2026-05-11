@@ -6,7 +6,7 @@ the unpredictability of F1.
 
 ## 🎯 Motivation
 F1 Fantasy is pretty difficult no matter what people think. The sport is very chaotic as anything can happen, 
-a consistent midfield driver could suddenly shine in certain circuits. Plain statistics cannot capture this, 
+a consistent midfield driver could suddenly shine in certain circuits or perform atrociously. So using plain statistics is not enough to capture it, 
 thefore this project attempts to solve it.
 
 ## 🔍 Project Overview
