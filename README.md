@@ -72,6 +72,7 @@ F1-Fantasy-Predictor/
 ├── src/
 │   ├── data_loader.py
     ├── features.py
+    ├── fantasy.py
 │   └── models.py
 ├── .gitignore
 ├── README.md
